@@ -228,8 +228,12 @@ textarea{min-height:90px;resize:vertical}
 .split .l{transform:translateX(calc(var(--p,0) * -16vw))}
 .split .r{transform:translateX(calc(var(--p,0) * 16vw));color:#ff3a4a}
 .split .gap{display:inline-block;width:calc(.35em + var(--p,0) * 4vw)}
-.dna-cap{position:absolute;left:0;right:0;bottom:12vh;text-align:center;display:grid;gap:14px;justify-items:center;opacity:var(--c,0);transform:translateY(calc((1 - var(--c,0)) * 20px));padding-inline:22px}
-.dna-cap p{max-width:52ch;color:#d6cdcf;font-size:1.02rem}
+.dna-cap{position:absolute;left:0;right:0;bottom:15vh;text-align:center;display:grid;gap:16px;justify-items:center;opacity:var(--c,0);transform:translateY(calc((1 - var(--c,0)) * 24px));padding-inline:22px}
+.dna-cap h2{font-size:clamp(1.9rem,6.4vw,2.6rem);font-weight:300;line-height:1.04}
+.dna-cap h2 em{font-style:normal;color:#ff3a4a}
+.dna-cap .kick{opacity:.9}
+@media (min-width:900px){.dna-cap{left:50%;right:6vw;top:50%;bottom:auto;text-align:left;justify-items:start;gap:22px;padding:0;transform:translate(calc((1 - var(--c,0)) * 40px),-50%)}.dna-cap h2{font-size:clamp(2.6rem,4.4vw,4.2rem)}}
+.dna-cap p{max-width:42ch;color:#d6cdcf;font-size:clamp(1rem,1.3vw,1.12rem)}
 .dna-top{position:absolute;top:12vh;left:0;right:0;text-align:center;opacity:calc(1 - var(--p,0) * 1.6)}
 @media (max-width:760px){.split{flex-direction:column;gap:8px}.split .l{transform:translateY(calc(var(--p,0) * -26vh))}.split .r{transform:translateY(calc(var(--p,0) * 26vh))}.split .gap{display:none}}
 
@@ -553,7 +557,8 @@ footer{border-top:1px solid var(--line);padding-block:44px calc(120px + env(safe
       <div class="dna-top"><span class="kick red">Por que Stond</span></div>
       <div class="split" aria-hidden="true"><span class="l">Toda marca</span><span class="gap"></span><span class="r">tem um DNA</span></div>
       <div class="dna-cap">
-        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300">Stond vem de stone. Pedra, base, solidez</h2>
+        <span class="kick red">Por que Stond</span>
+        <h2>Stond vem de stone.<br><em>Pedra, base, solidez.</em></h2>
         <p>O nosso propósito é revelar o DNA de cada marca e usá-lo para colocar pessoas e negócios em evolução.</p>
       </div>
     </div>
@@ -656,13 +661,13 @@ document.querySelectorAll('.folder').forEach(function(f){f.addEventListener('cli
   function ease(k){return k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2}
   function draw(t){
     if(!ready)return;
-    var p=reduce?1:prog(),k=ease(Math.max(0,Math.min(1,(p-.08)/.6))),S=Math.min(w*.55,h*.62)*468/607;
+    var p=reduce?1:prog(),k=ease(Math.max(0,Math.min(1,(p-.08)/.6))),m=ease(Math.max(0,Math.min(1,(p-.66)/.22))),wide=w>=900,S=Math.min(w*(wide?.55:.8),h*.62)*468/607*(1-m*(wide?.12:.3)),cx=w/2-m*(wide?w*.23:0),cy=h/2-m*(wide?0:h*.19);
     st.style.setProperty('--p',Math.min(1,p/.55).toFixed(3));
     st.style.setProperty('--c',Math.max(0,Math.min(1,(p-.68)/.2)).toFixed(3));
     x.clearRect(0,0,w,h);
     for(var i=0;i<P.length;i++){var q=P[i],wob=(1-k)*.02+.004;
-      var px=w/2+((q.sx+(q.tx-q.sx)*k)+Math.sin(t/900+q.ph)*wob)*S*(k>.98?1:1)*(1+(1-k)*.4),
-          py=h/2+((q.sy+(q.ty-q.sy)*k)+Math.cos(t/1100+q.ph)*wob)*S*(1+(1-k)*.4)-(1-Math.min(1,p*1.6))*0;
+      var px=cx+((q.sx+(q.tx-q.sx)*k)+Math.sin(t/900+q.ph)*wob)*S*(k>.98?1:1)*(1+(1-k)*.4),
+          py=cy+((q.sy+(q.ty-q.sy)*k)+Math.cos(t/1100+q.ph)*wob)*S*(1+(1-k)*.4)-(1-Math.min(1,p*1.6))*0;
       var a=.35+.65*k*(.6+.4*q.z),rr=(1.1+q.z*1.4)*(S/420);
       x.fillStyle='rgba('+(230+25*q.z|0)+','+(20+40*q.z*k|0)+','+(40+20*q.z|0)+','+a.toFixed(2)+')';
       x.beginPath();x.arc(px,py,Math.max(.8,rr),0,6.283);x.fill();}
