@@ -665,7 +665,7 @@ document.querySelectorAll('.folder').forEach(function(f){f.addEventListener('cli
     ready=true;draw(performance.now());
   }
   function sz(){flat=innerHeight>innerWidth*1.2;sec.classList.toggle('flat',flat);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
-  function prog(){var r=sec.getBoundingClientRect();if(flat)return Math.max(0,Math.min(1,(innerHeight*.85-r.top)/(innerHeight*.35+r.height/2)));var tot=sec.offsetHeight-innerHeight;return Math.max(0,Math.min(1,-r.top/tot))}
+  function prog(){var r=sec.getBoundingClientRect();if(flat)return Math.max(0,Math.min(1,(innerHeight*.62-r.top)/(innerHeight*.44)));var tot=sec.offsetHeight-innerHeight;return Math.max(0,Math.min(1,-r.top/tot))}
   function ease(k){return k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2}
   function draw(t){
     if(!ready)return;
