@@ -396,6 +396,7 @@ footer{border-top:1px solid var(--line);padding-block:44px calc(120px + env(safe
 @keyframes drawl{to{stroke-dashoffset:0}}
 @media (max-width:900px){.relevo-grid{grid-template-columns:1fr}.relevo-copy h2{min-height:0}.app{--rx:8deg;--ry:-6deg}.app-body{grid-template-columns:1fr}.app-side{display:none}}
 @media (prefers-reduced-motion:reduce){.app>*,.app-side span,.kpis div,.appr div{opacity:1;transform:none}.chart .line{stroke-dashoffset:0}}
+@media (max-width:800px) and (max-aspect-ratio:3/4){.dock{transform:translateX(-50%) scale(1.5);transform-origin:50% 100%;bottom:calc(26px + env(safe-area-inset-bottom,0px))}}
 </style>
 </head>
 <body>
