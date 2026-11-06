@@ -254,7 +254,7 @@ textarea{min-height:90px;resize:vertical}
 /* contato em vermelho cheio */
 .contact{position:relative;background:var(--bg);color:#fff;overflow:hidden;isolation:isolate}
 .contact::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(55% 70% at 0% 100%,rgba(248,11,29,.32),transparent 70%),radial-gradient(35% 45% at 100% 0%,rgba(164,11,29,.22),transparent 70%)}
-.contact .final{position:relative;padding:clamp(28px,4.5vw,64px);border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);align-items:center}
+.contact .final{width:calc(100% - 44px);max-width:var(--wrap);margin-inline:auto;position:relative;padding:clamp(28px,4.5vw,64px);border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);align-items:center}
 .contact .final::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(248,11,29,.8),transparent 35%,transparent 70%,rgba(248,11,29,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .contact .final h2 em{color:#ff3a4a}
 .contact .final .l p{color:#cfc5c7}
