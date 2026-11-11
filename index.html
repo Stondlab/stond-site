@@ -444,6 +444,19 @@ footer{border-top:1px solid var(--line);padding-block:44px calc(120px + env(safe
 
 /* detalhe: Melodrama só nas palavras em destaque dos títulos */
 h1 em,h2 em{font-family:"Melodrama",var(--display);font-weight:300;font-size:1.14em;letter-spacing:-.01em;line-height:.9}
+
+/* túnel em tela alta (celular): mais texto e cartas ocupando a altura */
+@media (max-aspect-ratio:3/4){
+  .tn-card{width:29vw}
+  .tn-nome{font-size:13.5vw}
+  .tn-passo p{font-size:3.4vw;max-width:22em}
+  .tn-kicker{font-size:2.3vw}
+  .tn-n{font-size:2.8vw}
+  .tn-aro.a1{width:78vw;height:78vw}
+  .tn-aro.a2{width:122vw;height:122vw}
+  .tn-glow{width:110vw}
+  .tn-dica{font-size:2.2vw;bottom:4vh}
+}
 </style>
 </head>
 <body>
@@ -854,11 +867,11 @@ document.querySelectorAll('.folder').forEach(function(f){f.addEventListener('cli
     if(r.bottom>-H&&r.top<H*2){
       sx+=(mx-sx)*.06;sy+=(my-sy)*.06;
       var p=reduce?0:cl(-r.top/(r.height-H));
-      var R=Math.min(W,H)*.36,minX=Math.min(W*.5-90,W*.27+70);
+      var tall=H>W*1.33,R=Math.min(W,H)*.36,minX=tall?0:Math.min(W*.5-90,W*.27+70);
       cards.forEach(function(c,i){
         var a=i*(.8/cards.length),k=cl((p-a)/.32),z=-1700+2200*k;
         var ang=(i*137.5+20)*Math.PI/180,cx=Math.cos(ang),cy=Math.sin(ang);
-        var x=(cx<0?-1:1)*Math.max(Math.abs(cx)*R*1.3,minX)-sx*40*(1+k),y=cy*R*.9-sy*30*(1+k);
+        var x=tall?cx*W*.3:(cx<0?-1:1)*Math.max(Math.abs(cx)*R*1.3,minX),y=tall?(cy<0?-1:1)*Math.max(Math.abs(cy)*H*.34,H*.2):cy*R*.9;x-=sx*40*(1+k);y-=sy*30*(1+k);
         var op=ss(0,.12,k)*(1-ss(.86,1,k));
         c.style.opacity=op.toFixed(3);c.style.visibility=op<.01?'hidden':'visible';
         c.style.transform='translate(-50%,-50%) translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,'+z.toFixed(1)+'px) rotateZ('+(Math.sin(i*2.3)*8).toFixed(1)+'deg)';
