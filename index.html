@@ -396,6 +396,12 @@ footer{border-top:1px solid var(--line);padding-block:44px calc(120px + env(safe
 .relevo.in .app-side span:nth-child(6),.relevo.in .appr div+div{transition-delay:.48s}
 .relevo.in .chart .line{animation:drawl 1.8s .5s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes drawl{to{stroke-dashoffset:0}}
+.sob-medida{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(18px,5vw,70px);align-items:end;margin-top:clamp(56px,8vw,100px);padding-top:clamp(28px,4vw,44px);border-top:1px solid rgba(241,235,236,.14);position:relative}
+.sob-medida::before{content:"";position:absolute;left:0;top:-1px;width:72px;height:1px;background:var(--red);box-shadow:0 0 14px rgba(248,11,29,.7)}
+.sob-medida h3{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:300;line-height:1.08;letter-spacing:-.02em}
+.sob-medida h3 em{font-family:"Melodrama",var(--display);font-style:normal;font-weight:300;font-size:1.14em;line-height:.9;color:#ff3a4a}
+.sob-medida p{margin:0;color:var(--muted);font-size:clamp(1.02rem,1.4vw,1.2rem);max-width:46ch}
+@media (max-width:900px){.sob-medida{grid-template-columns:1fr;align-items:start}}
 @media (max-width:900px){.relevo-grid{grid-template-columns:1fr}.relevo-copy h2{min-height:0}.app{--rx:8deg;--ry:-6deg}.app-body{grid-template-columns:1fr}.app-side{display:none}}
 @media (prefers-reduced-motion:reduce){.app>*,.app-side span,.kpis div,.appr div{opacity:1;transform:none}.chart .line{stroke-dashoffset:0}}
 @media (max-width:800px) and (max-aspect-ratio:3/4){.dock{transform:translateX(-50%) scale(1.5);transform-origin:50% 100%;bottom:calc(26px + env(safe-area-inset-bottom,0px))}}
@@ -574,6 +580,12 @@ h1 em,h2 em{font-family:"Melodrama",var(--display);font-weight:300;font-size:1.1
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="wrap reveal">
+      <div class="sob-medida">
+        <h3>Do Instagram ao <em>sistema</em></h3>
+        <p>Tecnologia própria, feita aqui dentro. Se funciona para a Stond, a gente constrói para o seu negócio.</p>
       </div>
     </div>
   </section>
