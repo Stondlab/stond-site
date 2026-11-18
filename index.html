@@ -362,16 +362,16 @@ footer{border-top:1px solid var(--line);padding-block:44px calc(120px + env(safe
 .svc p{color:var(--muted);font-size:.95rem}
 .tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.7rem;letter-spacing:.08em;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:#d6cdcf}
 @media (max-width:980px){.svcs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:620px){
+@media (max-width:820px){
 .svcs{display:flex;grid-template-columns:none;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -22px;padding:0 22px 4px;scroll-padding:0 22px;overscroll-behavior-x:contain}
 .svcs::-webkit-scrollbar{display:none}
-.svc,.svc.w2{flex:0 0 84%;grid-column:auto;scroll-snap-align:start;min-height:300px}
+.svc,.svc.w2{flex:0 0 78%;grid-column:auto;scroll-snap-align:start;min-height:300px}
 .svc-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
 .svc-dots button{width:7px;height:7px;padding:0;border:0;border-radius:999px;background:rgba(241,235,236,.25);cursor:pointer;transition:width .35s,background .35s}
 .svc-dots button.on{width:26px;background:var(--red)}
 }
 .svc-dots{display:none}
-@media (max-width:620px){.svc-dots{display:flex}}
+@media (max-width:820px){.svc-dots{display:flex}}
 .relevo{overflow:hidden}
 .relevo-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,5vw,70px);align-items:center}
 .relevo-copy{display:grid;gap:22px;justify-items:start}
@@ -911,7 +911,7 @@ document.querySelectorAll('.folder').forEach(function(f){f.addEventListener('cli
 (function(){
   var box=document.querySelector('.svcs'),dots=document.querySelector('.svc-dots');
   if(!box||!dots)return;
-  var cards=[].slice.call(box.querySelectorAll('.svc')),mq=matchMedia('(max-width:620px)'),
+  var cards=[].slice.call(box.querySelectorAll('.svc')),mq=matchMedia('(max-width:820px)'),
       calm=matchMedia('(prefers-reduced-motion: reduce)').matches,i=0,timer=null,hold=0;
   cards.forEach(function(c,n){var b=document.createElement('button');b.type='button';
     b.setAttribute('aria-label',(c.querySelector('h3')||{}).textContent||('Serviço '+(n+1)));
